@@ -14,7 +14,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>GaussianDreamer: Fast Generation from Text to 3D Gaussians by Bridging 2D and 3D Diffusion Models</title>
+    <title>GALA3D: Towards Complex Text-to-3D Generation via Generative Layout-guided Gaussian Splatting</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600' rel='stylesheet' type='text/css'>
@@ -23,10 +23,10 @@
     <link rel="icon" href="./static/icon.png">
 
 
-    <meta property="og:site_name" content="GaussianDreamer" />
+    <meta property="og:site_name" content="GALA3D" />
     <meta property="og:type" content="video.other" />
-    <meta property="og:title" content="GaussianDreamer: Fast Generation from Text to 3D Gaussian Splatting with Point Cloud Priors" />
-    <meta property="og:description" content="GaussianDreamer: Fast Generation from Text to 3D Gaussian Splatting with Point Cloud Priors, 2023." />
+    <meta property="og:title" content="GALA3D: Towards Complex Text-to-3D Generation via Generative Layout-guided Gaussian Splatting" />
+    <meta property="og:description" content="GALA3D: Towards Complex Text-to-3D Generation via Generative Layout-guided Gaussian Splatting, 2023." />
     <meta property="og:url" content="" />
 
     <script src="assets/js/video_comparison.js"></script>
@@ -38,14 +38,15 @@
 
     
     <div class="video-compare-container" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-        <h6 class="caption" style="margin-bottom: 10px;">A highly detailed stone bust of Carl Friedrich Gauss</h6>
+        <h6 class="caption" style="margin-bottom: 10px;">A living room has a coffee table with a basket on it, a wooden floor, a TV on a TV stand, and a sofa with an astronaut sitting on it</h6>
         <video class="video lazy" loop playsinline autoplay muted style="width: 10%;">
             <source data-src="static/video_ffmpeg_sr.mp4" type="video/mp4"></source>
+            <source data-src="static/output_video.mp4" type="video/mp4"></source>
         </video>
     </div>
     <div class="highlight-clean" style="padding-bottom: 10px;">
         <div class="container" style="max-width: 1024px; margin-bottom: 20px;">
-            <h1 class="text-center"><b>GaussianDreamer</b>:  Fast Generation from Text to 3D Gaussians by Bridging 2D and 3D Diffusion Models</h1>
+            <h1 class="text-center"><b>GALA3D</b>:  Towards Complex Text-to-3D Generation via Generative Layout-guided Gaussian Splatting</h1>
         </div>
 
 
@@ -55,17 +56,17 @@
                     <!-- <h5 class="text-center" style="text-align: center">Authors anonymized</h5> -->
                     <div class="text-center">
                             <span class="author-block" style="font-size: 20px;">
-                            <a href="https://taoranyi.github.io">Taoran Yi</a><sup>1</sup>,</span>
+                            <a href="https://taoranyi.github.io">Xiaoyu Zhou</a><sup>1</sup>,</span>
                             <span class="author-block" style="font-size: 20px;">
-                            <a href="https://jaminfong.cn">Jiemin Fang</a><sup>2?</sup>,</span>
+                            <a href="https://jaminfong.cn">Xingjian Ran</a><sup>2?</sup>,</span>
                             <span class="author-block" style="font-size: 20px;">
-                            <a href="https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&user=9Nw_mKAAAAAJ">Junjie Wang</a><sup>2</sup>,</span>
+                            <a href="https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&user=9Nw_mKAAAAAJ">xxx</a><sup>2</sup>,</span>
                           <span class="author-block" style="font-size: 20px;">
-                          <a href="https://guanjunwu.github.io">Guanjun Wu</a><sup>1</sup>,</span>
+                          <a href="https://guanjunwu.github.io">Jinlin He</a><sup>1</sup>,</span>
                           <span class="author-block" style="font-size: 20px;">
-                          <a href="http://lingxixie.com/">Lingxi Xie</a><sup>2</sup>,</span>
+                          <a href="http://lingxixie.com/">xxx</a><sup>2</sup>,</span>
                         <span class="author-block" style="font-size: 20px;">
-                          <a href="https://scholar.google.com/citations?user=Ud6aBAcAAAAJ&hl=zh-CN">Xiaopeng Zhang</a><sup>2</sup>,</span>
+                          <a href="https://scholar.google.com/citations?user=Ud6aBAcAAAAJ&hl=zh-CN">xxx</a><sup>2</sup>,</span>
                     </div>
                     <div class="text-center">
                     
@@ -123,7 +124,7 @@
             <div class="col-md-12">
                 <h2>Abstract</h2>
                 <p>
-                    In recent times, the generation of 3D assets from text prompts has shown impressive results. Both 2D and 3D diffusion models can help generate decent 3D objects based on prompts. 3D diffusion models have good 3D consistency, but their quality and generalization are limited as trainable 3D data is expensive and hard to obtain. 2D diffusion models enjoy strong abilities of generalization and fine generation, but 3D consistency is hard to guarantee. This paper attempts to bridge the power from the two types of diffusion models via the recent explicit and efficient 3D Gaussian splatting representation. A fast 3D object generation framework, named as GaussianDreamer, is proposed, where the 3D diffusion model provides priors for initialization and the 2D diffusion model enriches the geometry and appearance. Operations of noisy point growing and color perturbation are introduced to enhance the initialized Gaussians. Our GaussianDreamer can generate a high-quality 3D instance or 3D avatar within 15 minutes on one GPU, much faster than previous methods, while the generated instances can be directly rendered in real time. 
+                    In this paper, we propose a generative 3D Gaussians with Layout-guided control, GALA3D, for effective compositional text-to-3D generation in a user-friendly way. To this end, we utilize large language models (LLMs) for generating initial layout descriptions and introduce a layout-guided 3D Gaussian representation for 3D content generation with adaptive geometric constraints. We then propose an object-scene compositional optimization mechanism with conditioned diffusion to collaboratively generate realistic 3D scenes with consistent geometry, texture, scale, and accurate interactions among multiple objects while simultaneously adjusting the coarse layout priors extracted from the LLMs to align with the generated scene. Experiments show that GALA3D presents a user-friendly, end-to-end framework for state-of-the-art scene-level 3D content generation and controllable editing while ensuring the high fidelity of object-level entities within the scene. Source codes and models will be available.
                 </p>
             </div>
         </div>
@@ -142,7 +143,7 @@
             <div class="col-md-12">
                 <h2>Framework</h2>
                 <p>
-                    Overall framework of GaussianDreamer. Firstly, we utilize a 3D diffusion model to generate the initialized point clouds. After executing noisy point growing and color perturbation on the point clouds, we use them to initialize the 3D Gaussians. The initialized 3D Gaussians are further optimized using the SDS method with a 2D diffusion model. Finally, we render the image using the 3D Gaussians by employing 3D Gaussian Splatting. We can use one of various 3D diffusion models to generate the initialized point clouds. In this case, we take text-to-3D and text-to-motion diffusion models as examples.
+                    Overall framework of GALA3D. Given a textual description, GALA3D first creates a coarse layout using LLMs. The layout is then utilized to construct the Layout-guided Gaussian Representation, incorporating Adaptive Geometry Control to constrain the Gaussians' geometric shape and spatial distribution. Subsequently, Compositional Diffusions are employed to optimize the 3D Gaussians using text-to-image priors compositionally. Simultaneously, the Layout Refinement module refines the initial layout provided by LLMs, enabling a better adherence to real-world scene constraints.
                 </p>
             </div>
         </div>
