@@ -1,5 +1,5 @@
 ### Hi there 👋
-
+# This is a repository of the website for "GALA3D: Towards Complex Text-to-3D Generation via Generative Layout-guided Gaussian Splatting".
 <!--
 **gala3d/gala3d** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
