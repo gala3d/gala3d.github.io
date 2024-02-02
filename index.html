@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XB3PR2Y1TQ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XB3PR2Y1TQ');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>GaussianDreamer: Fast Generation from Text to 3D Gaussians by Bridging 2D and 3D Diffusion Models</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="./static/icon.png">
+
+
+    <meta property="og:site_name" content="GaussianDreamer" />
+    <meta property="og:type" content="video.other" />
+    <meta property="og:title" content="GaussianDreamer: Fast Generation from Text to 3D Gaussian Splatting with Point Cloud Priors" />
+    <meta property="og:description" content="GaussianDreamer: Fast Generation from Text to 3D Gaussian Splatting with Point Cloud Priors, 2023." />
+    <meta property="og:url" content="" />
+
+    <script src="assets/js/video_comparison.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
+</head>
+
+
+<body>
+
+    
+    <div class="video-compare-container" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <h6 class="caption" style="margin-bottom: 10px;">A highly detailed stone bust of Carl Friedrich Gauss</h6>
+        <video class="video lazy" loop playsinline autoplay muted style="width: 10%;">
+            <source data-src="static/video_ffmpeg_sr.mp4" type="video/mp4"></source>
+        </video>
+    </div>
+    <div class="highlight-clean" style="padding-bottom: 10px;">
+        <div class="container" style="max-width: 1024px; margin-bottom: 20px;">
+            <h1 class="text-center"><b>GaussianDreamer</b>:  Fast Generation from Text to 3D Gaussians by Bridging 2D and 3D Diffusion Models</h1>
+        </div>
+
+
+        <div class="container" style="max-width: 980px; margin-bottom: 20px;">
+            <div class="row authors">
+                <div class="col">
+                    <!-- <h5 class="text-center" style="text-align: center">Authors anonymized</h5> -->
+                    <div class="text-center">
+                            <span class="author-block" style="font-size: 20px;">
+                            <a href="https://taoranyi.github.io">Taoran Yi</a><sup>1</sup>,</span>
+                            <span class="author-block" style="font-size: 20px;">
+                            <a href="https://jaminfong.cn">Jiemin Fang</a><sup>2?</sup>,</span>
+                            <span class="author-block" style="font-size: 20px;">
+                            <a href="https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&user=9Nw_mKAAAAAJ">Junjie Wang</a><sup>2</sup>,</span>
+                          <span class="author-block" style="font-size: 20px;">
+                          <a href="https://guanjunwu.github.io">Guanjun Wu</a><sup>1</sup>,</span>
+                          <span class="author-block" style="font-size: 20px;">
+                          <a href="http://lingxixie.com/">Lingxi Xie</a><sup>2</sup>,</span>
+                        <span class="author-block" style="font-size: 20px;">
+                          <a href="https://scholar.google.com/citations?user=Ud6aBAcAAAAJ&hl=zh-CN">Xiaopeng Zhang</a><sup>2</sup>,</span>
+                    </div>
+                    <div class="text-center">
+                    
+                        <!-- <p></p> -->
+                        <span class="author-block" style="font-size: 20px;">
+
+                          <a href="https://scholar.google.com/citations?user=D7jDk7gAAAAJ&hl=zh-CN">Wenyu Liu</a><sup>1</sup>,
+                        </span>
+                        <span class="author-block" style="font-size: 20px;">
+
+                          <a href="https://www.qitian1987.com/">Qi Tian</a><sup>2</sup>,
+                        </span>
+                        <span class="author-block" style="font-size: 20px;">
+
+                          <a href="https://xwcv.github.io/">Xinggang Wang</a><sup>1??</sup>
+                        </span>
+                      </div>
+            
+                      <div class="text-center">
+                        <span class="author-block"><sup>1</sup>Huazhong University of Science and Technology</span>
+                        <span class="author-block"><sup>2</sup>Huawei Inc.</span>
+                        <!-- <p></p> -->
+                      </div>
+                        <div class="text-center">
+                        <span class="author-block"><sup>?</sup>Project lead.</span>
+                        <span class="author-block"><sup>?</sup>Corresponding author.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons" style="margin-top: 8px; margin-bottom: 8px;">
+                <a class="btn btn-light" role="button" href="https://arxiv.org/abs/2310.08529">
+                    <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z"></path>
+                    </svg>Paper
+                </a>
+                <a class="btn btn-light" role="button" href="https://github.com/hustvl/GaussianDreamer">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 
+                                1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 
+                                3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 
+                                2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                    </svg>
+                    Code
+                </a>
+                <a class="btn btn-light" role="button" href="https://huggingface.co/spaces/thewhole/GaussianDreamer_Demo">
+                    Huggingface demo
+                </a>
+            </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Abstract</h2>
+                <p>
+                    In recent times, the generation of 3D assets from text prompts has shown impressive results. Both 2D and 3D diffusion models can help generate decent 3D objects based on prompts. 3D diffusion models have good 3D consistency, but their quality and generalization are limited as trainable 3D data is expensive and hard to obtain. 2D diffusion models enjoy strong abilities of generalization and fine generation, but 3D consistency is hard to guarantee. This paper attempts to bridge the power from the two types of diffusion models via the recent explicit and efficient 3D Gaussian splatting representation. A fast 3D object generation framework, named as GaussianDreamer, is proposed, where the 3D diffusion model provides priors for initialization and the 2D diffusion model enriches the geometry and appearance. Operations of noisy point growing and color perturbation are introduced to enhance the initialized Gaussians. Our GaussianDreamer can generate a high-quality 3D instance or 3D avatar within 15 minutes on one GPU, much faster than previous methods, while the generated instances can be directly rendered in real time. 
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="max-width: 768px;">
+        <div class="row captioned_videos">
+            <div class="col-md-12">
+                <img src="static/teaser.png" alt="architecture" style="width: 100%">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Framework</h2>
+                <p>
+                    Overall framework of GaussianDreamer. Firstly, we utilize a 3D diffusion model to generate the initialized point clouds. After executing noisy point growing and color perturbation on the point clouds, we use them to initialize the 3D Gaussians. The initialized 3D Gaussians are further optimized using the SDS method with a 2D diffusion model. Finally, we render the image using the 3D Gaussians by employing 3D Gaussian Splatting. We can use one of various 3D diffusion models to generate the initialized point clouds. In this case, we take text-to-3D and text-to-motion diffusion models as examples.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="max-width: 768px;">
+        <div class="row captioned_videos">
+            <div class="col-md-12">
+                <img src="static/framework.png" alt="architecture" style="width: 100%">
+
+            </div>
+        </div>
+    </div>
+
+
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Training Process</h2>
+                <p>A 3D instance can be generated within 15 minutes on one GPU, much faster than previous methods, and can be directly rendered in real time.</p>
+            </div>
+        </div>
+        <div class="compositional captioned_videos" style="display: flex; justify-content: center;">
+            <video class="video lazy" autoplay loop playsinline muted style="width: 60%;">
+                <source data-src="static/output_gs_1124.webm" type="video/mp4"></source>
+            </video>
+            <video class="video lazy" autoplay loop playsinline muted style="width: 60%;">
+                <source data-src="static/output_ax_1124.webm" type="video/mp4"></source>
+            </video>
+        </div>
+    </div>
+
+
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Video</h2>
+            </div>
+
+            <div class="container" style="max-width: 768px;">
+                <div class="row captioned_videos">
+                    <div class="col-md-12">
+                        <div style="position:relative;padding-top:56.25%;">
+                            <iframe src="https://www.youtube.com/embed/GNzlUdQ1RBQ" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Comparison Results</h2>
+                <p>Qualitative comparisons between our method and <a href="https://dreamfusion3d.github.io/">DreamFusion</a>, <a href="https://research.nvidia.com/labs/dir/magic3d/">Magic3D</a>, <a href="https://fantasia3d.github.io/">Fantasia3D</a> and <a href="https://ml.cs.tsinghua.edu.cn/prolificdreamer/">ProlificDreamer</a>.</a></p>
+            </div>
+
+            <div class="container" style="max-width: 768px;">
+                <div class="row captioned_videos">
+                    <div class="col-md-12">
+                        <img src="static/compare.png" alt="architecture" style="width: 100%">
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="max-width: 768px;">
+                <div class="row captioned_videos">
+                    <div class="col-md-12">
+                        <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                            <source data-src="./static/onlycom.mp4" type="video/mp4"></source>
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Generation with Ground</h2>
+                <p>We use the point clouds with the added ground to initialize the 3D Gaussians.</a>.</p>
+            </div>
+        </div>
+
+        <div class="row captioned_videos">
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="./bg/airplane.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">airplane, fighter, steampunk style, ultra realistic, 4k, HD</h6>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="./bg/fox.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a fox</h6>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="./bg/ferrari.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">ferrari convertible, trending on artstation, ultra realistic, 4k, HD</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>More Generated Samples</h2>
+                <p>More generated samples by our GaussianDreamer.</p>
+            </div>
+        </div>
+        <div class="row captioned_videos">
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/ferrari_convertible,_trending_on_artstation,_ultra_realistic,_4k,_HD.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">ferrari convertible, trending on artstation, ultra realistic, 4k, HD</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/flamethrower,_with_fire,_scifi,_cyberpunk,_photorealistic,_8K,_HD.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">flamethrower, with fire, scifi, cyberpunk, photorealistic, 8K, HD</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_zoomed_out_DSLR_photo_of_an_amigurumi_motorcycle.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a zoomed out DSLR photo of an amigurumi motorcycle</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/fries_and_a_hamburger.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">fries and a hamburger</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_DSLR_photo_of_a_teapot_shaped_like_an_elephant_head_where_its_snout_acts_as_the_spout.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a DSLR photo of a teapot shaped like an elephant head where its snout acts as the spout</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/magic_dagger,_mistery,_ancient,_photorealistic,_8K,_HD.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption"> magic dagger, mistery, ancient, photorealistic, 8K, HD</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_zoomed_out_DSLR_photo_of_a_lion's_mane_jellyfish.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a zoomed out DSLR photo of a lion's mane jellyfish</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_fox.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a fox</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_freshly_baked_loaf_of_sourdough_bread_on_a_cutting_board.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a freshly baked loaf of sourdough bread on a cutting board</h6>
+                </div>
+            </div>
+
+            
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/Blue_and_white_porcelain_Viking_axe.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">Blue and white porcelain Viking axe</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_DSLR_photo_of_a_small_saguaro_cactus_planted_in_a_clay_pot.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a DSLR photo of a small saguaro cactus planted in a clay pot</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_delicious_hamburger.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a delicious hamburger</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/an_airplane_made_out_of_wood.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">an airplane made out of wood</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_DSLR_photo_of_a_pair_of_headphones_sitting_on_a_desk.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a DSLR photo of a pair of headphones sitting on a desk</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/Viking_axe,_fantasy,_weapon,_blender,_8k,_HD.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">Viking axe, fantasy, weapon, blender, 8k, HD</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/magic_gun,_game_asset,_mistery,_photorealistic,_8K,_HD.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">magic gun, game asset, mistery, photorealistic, 8K, HD</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/airplane,_fighter,_steampunk_style,_ultra_realistic,_4k,_HD.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">airplane, fighter, steampunk style, ultra realistic, 4k, HD</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_DSLR_photo_of_a_bagel_filled_with_cream_cheese_and_lox.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a DSLR photo of a bagel filled with cream cheese and lox</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_DSLR_photo_of_a_wine_bottle_and_full_wine_glass_on_a_chessboard.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a DSLR photo of a wine bottle and full wine glass on a chessboard</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/sniper_rifle,_asset,_scifi,_cyberpunk,_photorealistic,_8K,_HD.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">sniper rifle, asset, scifi, cyberpunk, photorealistic, 8K, HD</h6>
+                </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_golden_goblet,_low_poly.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a golden goblet, low poly</h6>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_plate_of_delicious_tacos.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a plate of delicious tacos</h6>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/an_opulent_couch_from_the_palace_of_Versailles.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">an opulent couch from the palace of Versailles</h6>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/mushroom_boss,_cute,_arms_and_legs,_big_eyes,_game,_character,_render,_best_quality,_super_detailed,_4K,_HD.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">mushroom boss, cute, arms and legs, big eyes, game, character, render, best quality, super detailed, 4K, HD</h6>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_DSLR_photo_of_a_steaming_basket_full_of_dumplings.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a DSLR photo of a steaming basket full of dumplings</h6>
+                </div>
+            </div>            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_panda_wearing_a_necktie_and_sitting_in_an_office_chair.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a panda wearing a necktie and sitting in an office chair</h6>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_beautiful_dress_made_out_of_fruit,_on_a_mannequin._Studio_lighting,_high_quality,_high_resolution.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a beautiful dress made out of fruit, on a mannequin. Studio lighting, high quality, high resolution</h6>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_DSLR_photo_of_an_ice_cream_sundae.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a DSLR photo of an ice cream sundae</h6>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_silver_platter_piled_high_with_fruits.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a silver platter piled high with fruits</h6>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="dowm/a_spanish_galleon_sailing_on_the_open_sea.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">a spanish galleon sailing on the open sea</h6>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Paint the SMPL</h2>
+                <p>Generate examples using the SMPL initialization. The SMPL is generated using text prompt through <a href="https://guytevet.github.io/mdm-page/">MDM</a>.</p>
+            </div>
+        </div>
+
+        <div class="row captioned_videos">
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100% ">
+                    <div style="display: flex; justify-content: center;">
+                        <img src="static/kick.png" alt="architecture" style="width: 45%">
+                    </div>
+                    <h6 class="caption">Someone kicks with his left leg</h6>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="./human/iron.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">Iron man kicks with his left leg</h6>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="./human/hulk.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">Hulk kicks with his left leg</h6>
+                </div>
+                
+            </div>
+            
+            <div class="row captioned_videos">
+                <div class="col-4">
+                    <div class="video-compare-container" style="width: 100% ">
+                        <div style="display: flex; justify-content: center;">
+                            <img src="static/jump.png" alt="architecture" style="width: 44%">
+                        </div>
+                        <h6 class="caption">The man jumped down from the sky</h6>
+                    </div>
+                </div>
+    
+                <div class="col-4">
+                    <div class="video-compare-container" style="width: 100%">
+                        <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                            <source data-src="./human/link.mp4" type="video/mp4"></source>
+                        </video>
+                        <h6 class="caption">Link in Zelda jumped down from the sky</h6>
+                    </div>
+                    
+                </div>
+                <div class="col-4">
+                    <div class="video-compare-container" style="width: 100%">
+                        <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                            <source data-src="./human/batman.mp4" type="video/mp4"></source>
+                        </video>
+                        <h6 class="caption">Batman jumped down from the sky</h6>
+                    </div>
+                    
+                </div>
+
+        </div>
+    </div>
+    
+
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Application</h2>
+                <p>Import the generated 3D assets into the Unity game engine to become materials for games and designs with the help of <a href="https://github.com/aras-p/UnityGaussianSplatting">UnityGaussianSplatting
+                </a>.</p>
+            </div>
+        </div>
+
+        <div class="row captioned_videos">
+
+
+            <div class="col-6">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="./unity/3d.mp4" type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">Generated by GaussianDreamer.</h6>
+                </div>
+            </div>
+
+            
+            <div class="col-6">
+                <div class="video-compare-container" style="width: 130%">
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="./unity/unity.mp4"  type="video/mp4"></source>
+                    </video>
+                    <h6 class="caption">Import the generated 3D assets into the Unity game engine.</h6>
+                </div>
+            </div>
+    
+
+
+        </div>
+    </div>
+    
+    <section class="section" id="More Research">
+        <div class="container is-max-desktop content">
+          <h2 class="title">More Research</h2>
+          <span class="author-block" style="font-size: 20px;">
+            <!-- <h1 class="text-center">sdsad</h1> -->
+            <a class="navbar-item" href="https://jaminfong.cn/neusample/">
+                NeuSample,
+              </a>
+              <a class="navbar-item" href="https://jaminfong.cn/tineuvox/">
+                TiNeuVox,
+              </a>
+              <a class="navbar-item" href="https://taoranyi.com/gneuvox/">
+                GNeuVox,
+               </a>
+              <a class="navbar-item" href="https://jumpat.github.io/SA3D/">
+                Segment Anything in 3D with NeRFs,
+              </a>
+              <a class="navbar-item" href="https://guanjunwu.github.io/4dgs/">
+                4D-GS
+              </a>
+            </span>
+        </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>
+@article{yi2023gaussiandreamer,
+  title={GaussianDreamer: Fast Generation from Text to 3D Gaussians by Bridging 2D and 3D Diffusion Models},
+  author={Yi, Taoran and Fang, Jiemin and Wang, Junjie and Wu, Guanjun and Xie, Lingxi and Zhang, Xiaopeng and Liu, Wenyu and Tian, Qi and Wang, Xinggang},
+  journal={arXiv preprint arXiv:2310.08529},
+  year={2023}
+}
+          </code></pre>
+        </div>
+    </section>
+
+
+
+    <div class="container" style="max-width: 768px;">
+        <footer>
+            <p> Website template from <a href="https://dreamfusion3d.github.io/">DreamFusion</a>. We thank the authors for the open-source code.</p>
+        </footer>
+    </div>
+    <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
+    <script src="assets/js/yall.js"></script>
+    <script>
+        yall(
+            {
+                observeChanges: true
+            }
+        );
+    </script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/js/webflow.fd002feec.js"></script>
+    <!-- Import the component -->
+</body>
+
+</html>
