@@ -35,13 +35,23 @@
 
 
 <body>
-
-    
-    <div class="video-compare-container" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+    <div class="row captioned_videos">
         <h6 class="caption" style="margin-bottom: 10px;">A living room has a coffee table with a basket on it, a wooden floor, a TV on a TV stand, and a sofa with an astronaut sitting on it</h6>
-        <video class="video lazy" loop playsinline autoplay muted style="width: 10%;">
-            <source data-src="static/video_ffmpeg_sr.mp4" type="video/mp4"></source>
-        </video>
+        <div class="col-md-12">
+            <div class="video-compare-container" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                <video class="video lazy" loop playsinline autoplay muted style="width: 10%;">
+                    <source data-src="static/output_video.mp4" type="video/mp4"></source>
+                </video>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="video-compare-container" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                <!-- <h6 class="caption" style="margin-bottom: 10px;">A living room has a coffee table with a basket on it, a wooden floor, a TV on a TV stand, and a sofa with an astronaut sitting on it</h6> -->
+                <video class="video lazy" loop playsinline autoplay muted style="width: 10%;">
+                    <source data-src="static/out.mp4" type="video/mp4"></source>
+                </video>
+            </div>
+        </div>
     </div>
     <div class="highlight-clean" style="padding-bottom: 10px;">
         <div class="container" style="max-width: 1024px; margin-bottom: 20px;">
@@ -55,32 +65,28 @@
                     <!-- <h5 class="text-center" style="text-align: center">Authors anonymized</h5> -->
                     <div class="text-center">
                             <span class="author-block" style="font-size: 20px;">
-                            <a href="https://taoranyi.github.io">Xiaoyu Zhou</a><sup>1</sup>,</span>
+                            <a href="https://scholar.google.com/citations?user=WLE4TUoAAAAJ&hl=zh-CN">Xiaoyu Zhou</a><sup>1</sup>,</span>
                             <span class="author-block" style="font-size: 20px;">
-                            <a href="https://jaminfong.cn">Xingjian Ran</a><sup>2?</sup>,</span>
+                            <a href="https://orcid.org/0009-0002-4014-0705">Xingjian Ran</a><sup>2?</sup>,</span>
                             <span class="author-block" style="font-size: 20px;">
-                            <a href="https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&user=9Nw_mKAAAAAJ">xxx</a><sup>2</sup>,</span>
+                            <a href="https://orcid.org/0009-0001-9464-5314">XiongYajiao</a><sup>2</sup>,</span>
                           <span class="author-block" style="font-size: 20px;">
-                          <a href="https://guanjunwu.github.io">Jinlin He</a><sup>1</sup>,</span>
+                          <a href="https://orcid.org/0009-0001-7547-3692">Jinlin He</a><sup>1</sup>,</span>
                           <span class="author-block" style="font-size: 20px;">
-                          <a href="http://lingxixie.com/">xxx</a><sup>2</sup>,</span>
+                          <a href="https://scholar.google.com/citations?user=ClU7ua0AAAAJ&hl=zh-CN">Zhiwei Lin</a><sup>2</sup>,</span>
                         <span class="author-block" style="font-size: 20px;">
-                          <a href="https://scholar.google.com/citations?user=Ud6aBAcAAAAJ&hl=zh-CN">xxx</a><sup>2</sup>,</span>
+                          <a href="https://scholar.google.com/citations?user=Zna90HQAAAAJ&hl=zh-CN">Yongtao Wang</a><sup>2</sup>,</span>
                     </div>
                     <div class="text-center">
                     
                         <!-- <p></p> -->
                         <span class="author-block" style="font-size: 20px;">
 
-                          <a href="https://scholar.google.com/citations?user=D7jDk7gAAAAJ&hl=zh-CN">Wenyu Liu</a><sup>1</sup>,
+                          <a href="https://deqings.github.io/">Deqing Sun</a><sup>1</sup>,
                         </span>
                         <span class="author-block" style="font-size: 20px;">
 
-                          <a href="https://www.qitian1987.com/">Qi Tian</a><sup>2</sup>,
-                        </span>
-                        <span class="author-block" style="font-size: 20px;">
-
-                          <a href="https://xwcv.github.io/">Xinggang Wang</a><sup>1??</sup>
+                          <a href="https://faculty.ucmerced.edu/mhyang/">Ming-Hsuan Yang</a><sup>2</sup>,
                         </span>
                       </div>
             
@@ -269,88 +275,88 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2>More Generated Samples</h2>
-                <p>More generated samples by our GaussianDreamer.</p>
+                <p>More generated samples by our GALA3D.</p>
             </div>
         </div>
         <div class="row captioned_videos">
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/ferrari_convertible,_trending_on_artstation,_ultra_realistic,_4k,_HD.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/astronaut_horse.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">ferrari convertible, trending on artstation, ultra realistic, 4k, HD</h6>
+                    <h6 class="caption">An astronaut riding a horse</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/flamethrower,_with_fire,_scifi,_cyberpunk,_photorealistic,_8K,_HD.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/ball.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">flamethrower, with fire, scifi, cyberpunk, photorealistic, 8K, HD</h6>
+                    <h6 class="caption">There is a rugby ball, volleyball and crystal ball</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/a_zoomed_out_DSLR_photo_of_an_amigurumi_motorcycle.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/bear.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">a zoomed out DSLR photo of an amigurumi motorcycle</h6>
+                    <h6 class="caption">A bear in a bowler hat pushing a cart</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/fries_and_a_hamburger.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/bedroom.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">fries and a hamburger</h6>
+                    <h6 class="caption">A bedroom with a bed, two wooden nightstands, a square wooden table with a table lamp on it, and a wooden wardrobe</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/a_DSLR_photo_of_a_teapot_shaped_like_an_elephant_head_where_its_snout_acts_as_the_spout.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/cat.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">a DSLR photo of a teapot shaped like an elephant head where its snout acts as the spout</h6>
+                    <h6 class="caption">A cat lies on a plank of wood suspended from two balloons</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/magic_dagger,_mistery,_ancient,_photorealistic,_8K,_HD.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/chess.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption"> magic dagger, mistery, ancient, photorealistic, 8K, HD</h6>
+                    <h6 class="caption">Chess is on the table next to two stones</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/a_zoomed_out_DSLR_photo_of_a_lion's_mane_jellyfish.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/comp3d1.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">a zoomed out DSLR photo of a lion's mane jellyfish</h6>
+                    <h6 class="caption">A tent on the grassland with a campfire next to it</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/a_fox.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/comp3d2.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">a fox</h6>
+                    <h6 class="caption">A Victorian style wooden chair on an oak floor with a Ficus in a pot next to it</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/a_freshly_baked_loaf_of_sourdough_bread_on_a_cutting_board.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/dog.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">a freshly baked loaf of sourdough bread on a cutting board</h6>
+                    <h6 class="caption">A puppy lying on the iron plate on the top of Great Pyramid</h6>
                 </div>
             </div>
 
@@ -358,112 +364,112 @@
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/Blue_and_white_porcelain_Viking_axe.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/food.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">Blue and white porcelain Viking axe</h6>
+                    <h6 class="caption">A table with a hamburger, a bread, an order of fries, and a cup of Coke</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/a_DSLR_photo_of_a_small_saguaro_cactus_planted_in_a_clay_pot.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/food2.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">a DSLR photo of a small saguaro cactus planted in a clay pot</h6>
+                    <h6 class="caption">A table with a roasted turkey, a salad, a loaf of French bread, a glass of orange juice and an empty plate</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/a_delicious_hamburger.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/grassland.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">a delicious hamburger</h6>
+                    <h6 class="caption">A camping scene with a tent on the grassland and two benches next to a campfire</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/an_airplane_made_out_of_wood.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/hamburger.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">an airplane made out of wood</h6>
+                    <h6 class="caption">A hamburger on a plate on a stool</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/a_DSLR_photo_of_a_pair_of_headphones_sitting_on_a_desk.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/kitchen.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">a DSLR photo of a pair of headphones sitting on a desk</h6>
+                    <h6 class="caption">A kitchen with a kitchen stove, a range hood, a refrigerator, a tile floor, and a microwave on the table</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/Viking_axe,_fantasy,_weapon,_blender,_8k,_HD.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/livingroom.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">Viking axe, fantasy, weapon, blender, 8k, HD</h6>
+                    <h6 class="caption">A living room has a coffee table with a basket on it, a wooden floor, a TV on a TV stand, and a sofa with an astronaut sitting on it</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/magic_gun,_game_asset,_mistery,_photorealistic,_8K,_HD.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/model.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">magic gun, game asset, mistery, photorealistic, 8K, HD</h6>
+                    <h6 class="caption">A table with models of teddy bears, marlin (clown fish), Hello Kitty, Mickey Mouse, Stitch, Snoopy, Donald Duck, Santa Claus, SpongeBob SquarePants, and Patrick Star in the shape of a heart</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/airplane,_fighter,_steampunk_style,_ultra_realistic,_4k,_HD.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/octopus.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">airplane, fighter, steampunk style, ultra realistic, 4k, HD</h6>
+                    <h6 class="caption">An octopus playing the piano</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/a_DSLR_photo_of_a_bagel_filled_with_cream_cheese_and_lox.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/pandas.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">a DSLR photo of a bagel filled with cream cheese and lox</h6>
+                    <h6 class="caption">Panda in a wizard hat sitting on a Victorian-style wooden chair and looking at a Ficus in a pot</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/a_DSLR_photo_of_a_wine_bottle_and_full_wine_glass_on_a_chessboard.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/playground.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">a DSLR photo of a wine bottle and full wine glass on a chessboard</h6>
+                    <h6 class="caption">An amusement park swing, a seesaw, a street lamp on the grass</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/sniper_rifle,_asset,_scifi,_cyberpunk,_photorealistic,_8K,_HD.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/puppy.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">sniper rifle, asset, scifi, cyberpunk, photorealistic, 8K, HD</h6>
+                    <h6 class="caption">A puppy lying on the roof of a car</h6>
                 </div>
                 
             </div>
             <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
-                        <source data-src="dowm/a_golden_goblet,_low_poly.mp4" type="video/mp4"></source>
+                        <source data-src="dowm/rabbit.mp4" type="video/mp4"></source>
                     </video>
-                    <h6 class="caption">a golden goblet, low poly</h6>
+                    <h6 class="caption">A rabbit eating birthday cake at the dining table</h6>
                 </div>
             </div>
 
-            <div class="col-4">
+            <!-- <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
                         <source data-src="dowm/a_plate_of_delicious_tacos.mp4" type="video/mp4"></source>
@@ -533,7 +539,7 @@
                     </video>
                     <h6 class="caption">a spanish galleon sailing on the open sea</h6>
                 </div>
-            </div>
+            </div> -->
         </div>
         
     </div>
