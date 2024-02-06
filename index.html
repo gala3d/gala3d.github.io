@@ -35,11 +35,38 @@
 
 
 <body>
-    <div class="video-compare-container" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+    <!-- <div class="video-compare-container" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
         <h6 class="caption" style="margin-bottom: 10px;">A living room has a coffee table with a basket on it, a wooden floor, a TV on a TV stand, and a sofa with an astronaut sitting on it</h6>
         <video class="video lazy" loop playsinline autoplay muted style="width: 30%;">
             <source data-src="static/top.mp4" type="video/mp4"></source>
         </video>
+    </div> -->
+    <div class="container" style="max-width: 768px;">
+        <div class="row captioned_videos">
+            <div class="col-4">
+                <div class="video-comare-container" style="width: 100%">
+                    <h6 class="caption">A living room has a coffee table with a basket on it, a wooden floor, a TV on a TV stand, and a sofa with an astronaut sitting on it</h6>
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="./top/1.mp4" type="video/mp4"></source>
+                    </video>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="video-comare-container" style="width: 100%">
+                    <h6 class="caption">A table with a roasted turkey, a salad, a loaf of French bread, a glass of orange juice and an empty plate</h6>
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="./top/2.mp4" type="video/mp4"></source>
+                    </video>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="video-comare-container" style="width: 100%">
+                    <h6 class="caption">Panda in a wizard hat sitting on a Victorian-style wooden chair and looking at a Ficus in a pot</h6>
+                    <video class="video lazy" loop playsinline autoplay muted style="width: 100%">
+                        <source data-src="./top/3.mp4" type="video/mp4"></source>
+                    </video>
+                </div>
+            </div>
     </div>
     
     <div class="highlight-clean" style="padding-bottom: 10px;">
@@ -56,37 +83,37 @@
                             <span class="author-block" style="font-size: 20px;">
                             <a href="https://scholar.google.com/citations?user=WLE4TUoAAAAJ&hl=zh-CN">Xiaoyu Zhou</a><sup>1</sup>,</span>
                             <span class="author-block" style="font-size: 20px;">
-                            <a href="https://orcid.org/0009-0002-4014-0705">Xingjian Ran</a><sup>2?</sup>,</span>
+                            <a href="https://orcid.org/0009-0002-4014-0705">Xingjian Ran</a><sup>1</sup>,</span>
                             <span class="author-block" style="font-size: 20px;">
-                            <a href="https://orcid.org/0009-0001-9464-5314">XiongYajiao</a><sup>2</sup>,</span>
+                            <a href="https://orcid.org/0009-0001-9464-5314">XiongYajiao</a><sup>1</sup>,</span>
                           <span class="author-block" style="font-size: 20px;">
                           <a href="https://orcid.org/0009-0001-7547-3692">Jinlin He</a><sup>1</sup>,</span>
                           <span class="author-block" style="font-size: 20px;">
-                          <a href="https://scholar.google.com/citations?user=ClU7ua0AAAAJ&hl=zh-CN">Zhiwei Lin</a><sup>2</sup>,</span>
+                          <a href="https://scholar.google.com/citations?user=ClU7ua0AAAAJ&hl=zh-CN">Zhiwei Lin</a><sup>1</sup>,</span>
                         <span class="author-block" style="font-size: 20px;">
-                          <a href="https://scholar.google.com/citations?user=Zna90HQAAAAJ&hl=zh-CN">Yongtao Wang</a><sup>2</sup>,</span>
+                          <a href="https://scholar.google.com/citations?user=Zna90HQAAAAJ&hl=zh-CN">Yongtao Wang</a><sup>1</sup>,</span>
                     </div>
                     <div class="text-center">
                     
                         <!-- <p></p> -->
                         <span class="author-block" style="font-size: 20px;">
 
-                          <a href="https://deqings.github.io/">Deqing Sun</a><sup>1</sup>,
+                          <a href="https://deqings.github.io/">Deqing Sun</a><sup>2</sup>,
                         </span>
                         <span class="author-block" style="font-size: 20px;">
 
-                          <a href="https://faculty.ucmerced.edu/mhyang/">Ming-Hsuan Yang</a><sup>2</sup>,
+                          <a href="https://faculty.ucmerced.edu/mhyang/">Ming-Hsuan Yang</a><sup>2,3</sup>,
                         </span>
                       </div>
             
                       <div class="text-center">
-                        <span class="author-block"><sup>1</sup>Peking University</span>
+                        <span class="author-block"><sup>1</sup>Wangxuan Institute of Computer Technology, Peking University</span>
                         <!-- <span class="author-block"><sup>2</sup>Huawei Inc.</span> -->
                         <!-- <p></p> -->
                       </div>
                         <div class="text-center">
-                        <span class="author-block"><sup>?</sup>Project lead.</span>
-                        <span class="author-block"><sup>?</sup>Corresponding author.</span>
+                        <span class="author-block"><sup>2</sup>Google Research</span>
+                        <span class="author-block"><sup>3</sup>University of California, Merced</span>
                     </div>
                 </div>
             </div>
@@ -467,12 +494,11 @@
         </div>
     </div>
     
-    <hr class="divider" />
+    <!-- <hr class="divider" />
     <section class="section" id="More Research">
         <div class="container" style="max-width: 768px;">
           <h2 class="title">More Research</h2>
           <span class="author-block" style="font-size: 20px;">
-            <!-- <h1 class="text-center">sdsad</h1> -->
             <a class="navbar-item" href="https://jaminfong.cn/neusample/">
                 NeuSample,
               </a>
@@ -505,7 +531,7 @@
 }
           </code></pre>
         </div>
-    </section>
+    </section> -->
 
 
 
